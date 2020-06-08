@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Yeshwanthyk/spotify-butler/issues"
   },
-  "homepage": "https://github.com/Yeshwanthyk/spotify-butler#readme"
+  "homepage": "https://github.com/Yeshwanthyk/spotify-butler#readme",
+  "dependencies": {
+    "commander": "^5.1.0"
+  }
 }
