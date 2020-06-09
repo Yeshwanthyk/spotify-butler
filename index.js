@@ -1,4 +1,7 @@
 const { program } = require('commander');
+const SpotifyWebApi = require('spotify-web-api-node');
+
+const auth = require('./auth.js');
 
 program
   .option('-o, --oauth', 'Authenticate with Spotify')
@@ -7,7 +10,8 @@ program
 
 program.parse(process.argv);
 
-console.log('pizza details:');
-if (program.oauth) console.log(program.opts());
+if (program.oauth) {
+  auth();
+}
 if (program.playlists) console.log('- small pizza size');
 if (program.add) console.log(`- ${program.add}`);
