@@ -1,22 +1,25 @@
-const fetch = require('node-fetch');
+const fetch = require("node-fetch");
 
 async function getCurrentSong(token) {
-  const url = 'https://api.spotify.com/v1/me/player/currently-playing';
+async function makeFetch(url, token) {
+	const response = await fetch(url, {
+		method: "GET",
+		headers: setHeaders(token)
+	});
 
-  console.log('url', url);
-  const headers = {
-    Accept: 'application/json',
-    'Content-Type': 'application/json',
-    Authorization: `Bearer ${token}`,
-  };
+	const data = await response.json();
 
-  const response = await fetch(url, {
-    method: 'GET',
-    headers: headers,
-  });
+	return data;
+}
 
-  const data = await response.json();
-  return data.item.uri;
+function setHeaders(token) {
+	const headers = {
+		Accept: "application/json",
+		"Content-Type": "application/json",
+		Authorization: `Bearer ${token}`
+	};
+
+	return headers;
 }
 
 module.exports.getCurrentSong = getCurrentSong;
