@@ -1,6 +1,6 @@
 const { program } = require("commander");
 const auth = require("./auth/auth.js");
-const { getCurrentSong } = require("./spotify.js");
+const { getCurrentSong, getPlaylists } = require("./spotify.js");
 
 program
 	.option("-o, --oauth", "Authenticate with Spotify")
@@ -16,14 +16,17 @@ if (program.oauth) {
 
 if (program.playlists) {
 	if (!program.authToken) return;
+	const token = program.authToken;
+	getPlaylists(token).then(playlists => {
+		console.log(playlists);
+	});
 }
 
 if (program.add) {
 	if (!program.authToken) return;
-
 	const token = program.authToken;
 
 	getCurrentSong(token).then(songURI => {
-		console.log("songURI", songURI);
+		console.log(songURI);
 	});
 }
