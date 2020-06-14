@@ -14,6 +14,26 @@ This is a compact CLI for adding the current playing song on Spotify to a playli
 npm install -g spotify-butler
 ```
 
+## Usage
+
+Grab the latest Auth Token:
+
+```bash
+spotify-butler -o
+```
+
+Grab a list of playlists and their corresponding IDs
+
+```bash
+spotify-butler -p -t <auth-token>
+```
+
+Add current playing song to a playlist of your choice
+
+```bash
+spotify-butler -a <playlist-id> -t <auth-token>
+```
+
 ## Features
 
 The package includes the following:
