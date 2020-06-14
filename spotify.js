@@ -9,7 +9,7 @@ async function getCurrentSong(token) {
 	});
 
 	const data = await response.json();
-	return data.item.uri;
+	return data;
 }
 
 async function getPlaylists(token) {
@@ -18,6 +18,17 @@ async function getPlaylists(token) {
 		return makeFetch(url, token);
 	});
 	return playlists;
+}
+
+async function addSongToPlaylist(token, playlistId, songId) {
+	const songIdClean = songId.replace(/:/gi, "%3A");
+
+	url = `https://api.spotify.com/v1/playlists/${playlistId}/tracks?uris=${songIdClean}`;
+
+	await fetch(url, {
+		method: "POST",
+		headers: setHeaders(token)
+	});
 }
 
 async function getUserDetails(token) {
@@ -48,3 +59,4 @@ function setHeaders(token) {
 
 module.exports.getCurrentSong = getCurrentSong;
 module.exports.getPlaylists = getPlaylists;
+module.exports.addSongToPlaylist = addSongToPlaylist;
