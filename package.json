@@ -1,11 +1,11 @@
 {
   "name": "spotify-butler",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A CLI application to help serve your spotify needs",
   "main": "bin/index.js",
   "preferGlobal": true,
   "bin": {
-    "app": "bin/index.js"
+    "spotify-butler": "bin/index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
