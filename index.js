@@ -17,8 +17,13 @@ if (program.oauth) {
 if (program.playlists) {
 	if (!program.authToken) return;
 	const token = program.authToken;
-	getPlaylists(token).then(playlists => {
-		console.log(playlists);
+
+	let playlists = {};
+
+	getPlaylists(token).then(playlistsJson => {
+		playlistsJson.items.forEach(item => {
+			console.log(item.name, item.id);
+		});
 	});
 }
 
