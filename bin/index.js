@@ -24,8 +24,6 @@ if (program.playlists) {
   if (!program.authToken) return;
   const token = program.authToken;
 
-  let playlists = {};
-
   getPlaylists(token).then((playlistsJson) => {
     playlistsJson.items.forEach((item) => {
       console.log(item.name, item.id);
