@@ -34,6 +34,20 @@ Add current playing song to a playlist of your choice
 spotify-butler -a <playlist-id> -t <auth-token>
 ```
 
+I personally set up an alias to make the process seamless
+
+```bash
+spotify-add='spotify-butler -a <playlist-id> -t'
+```
+
+We can then just add songs by,
+
+```bash
+spotify-add <auth-token>
+```
+
+**If the auth-token has expired, `spotify-butler` would grab a new one for you automatically.**
+
 ## Features
 
 The package includes the following:
